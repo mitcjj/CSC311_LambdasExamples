@@ -32,6 +32,53 @@ public class ArraysAndStreams2 {
                .filter(s -> s.compareToIgnoreCase("n") < 0)
                .sorted(String.CASE_INSENSITIVE_ORDER.reversed())
                .collect(Collectors.toList()));
+
+      /**
+       * Task 1
+       *
+       * This section casts the first character of each String in the stream as a String,
+       * then matches it against a regex pattern composed of the vowels a, e, i, o, u, and y.
+       * Then it prints a List of Strings that start with a vowel
+       *
+       * @author Jared Mitchell
+       *
+       * @param String[] strings
+       */
+      System.out.printf("strings that start with a vowel: %s%n",
+              Arrays.stream(strings)
+                      .filter(s -> (Character.toString(s.charAt(0))).matches("[aeiouyAEIOUY]"))
+                      .collect(Collectors.toList()));
+
+      /**
+       * Task 2
+       *
+       * This section uses a collector to join the Strings in the Stream into a single String,
+       * with each original String separated by commas,
+       * and prints it.
+       *
+       * @author Jared Mitchell
+       *
+       * @param String[] strings
+       */
+      System.out.printf("all strings concatenated into a single string: %s\n",
+              Arrays.stream(strings)
+                      .collect(Collectors.joining(",")));
+
+      /**
+       * Task 3
+       *
+       * This section checks the length of each string in the Stream,
+       * filters out any String with less than 6 characters,
+       * then prints a List of the qualifying Strings.
+       *
+       * @author Jared Mitchell
+       *
+       * @param String[] strings
+       */
+      System.out.printf("strings that contain more than 5 characters: %s%n",
+              Arrays.stream(strings)
+                      .filter(s -> s.length() > 5)
+                      .collect(Collectors.toList()));
    }
 } 
 
